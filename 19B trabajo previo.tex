@@ -1,0 +1,142 @@
+
+\documentclass[article, 11pt]{report}
+\usepackage{matlab-prettifier}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{epstopdf}
+\usepackage[table]{xcolor}
+\usepackage[spanish]{babel}
+\usepackage{fullpage} % changes the margin
+\usepackage{graphicx} 
+\usepackage{enumitem} 
+\usepackage{chngcntr}
+\renewcommand{\thesection}{\arabic{section}} 
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{subcaption}
+\usepackage{vmargin}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{array}
+
+\usepackage{matlab}
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\setpapersize{A4}
+\setmargins{2.5cm}       % margen izquierdo
+{1.5cm}                        % margen superior
+{16.75cm}                      % anchura del texto
+{23.42cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{0pt}                             % altura del pie de página
+{1cm}
+\begin{document}
+	\section{Trabajo Previo}
+	
+	
+	 Se quiere demostrar que en las ecuaciones:
+
+
+$$ \phi = \arctan(\dfrac{1}{2\pi \nu RC })$$ 
+	 
+
+$$ Z = \sqrt{R^2 +  (\dfrac{1}{2 \pi \nu C})^2}	$$
+
+Cuando la frecuencia $\nu$ tiende a cero el valor de la impedancia $Z$ tiende a infinito y el valor del desfase tiende a $\pi/2$ mientras que si la frecuencia tiende a infinito la impedancia tiende al valor de la resistencia $R$ y el valor del angulo de desfase es 0.
+
+Se presentan las graficas del modulo de la impedancia $|Z|$ y del valor del angulo $\phi$ frente a un rango de frecuencias: $[30,3000]Hz$ considerando $R=2100\Omega$ y $C= 10^-7 F$	
+
+
+
+	
+
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\linewidth]{Curva1}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\linewidth]{Curva2}
+
+	\end{minipage}
+\end{figure}
+
+El código de Matlab usado para las gráficas:
+
+\lstset{language= Matlab, breaklines=true, basicstyle=\footnotesize}
+\begin{lstlisting}[ language=Matlab, basicstyle=\small, keywordstyle = \color{blue}]
+	C=10^-7;
+	R=2100;
+	v=30:1:3000;
+	
+	for i=1:length(v)
+	Z(i)= sqrt(R^2 + (1/(2*pi*v(i)*C))^2);
+	phi(i) = atan(1/(2*pi*v(i)*R*C));
+	end
+	
+	loglog(v,Z)
+	title('Modulo de la Impedancia frente a frecuencia')
+	xlabel('Frecuencia (Hz)')
+	ylabel('Modulo de la impedancia (k$\Omega$),'Interpreter='latex')
+	grid on
+	
+	semilogx(v,phi)
+	title('Angulo de desfase frente a frecuencia')
+	xlabel('Frecuencia (Hz)')
+	ylabel('Angulo de desfase (rad)')
+	
+	grid on
+\end{lstlisting}
+
+
+\end{document}

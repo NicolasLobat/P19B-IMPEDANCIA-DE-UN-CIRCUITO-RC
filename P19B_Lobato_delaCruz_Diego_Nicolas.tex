@@ -1,0 +1,505 @@
+
+\documentclass[article, 11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{epstopdf}
+\usepackage[table]{xcolor}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.75,bmargin=1cm,footnotesep=1cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage{fullpage} % changes the margin
+\usepackage{graphicx} 
+\usepackage{enumitem} 
+\usepackage{chngcntr}
+\renewcommand{\thesection}{\arabic{section}} 
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{chemformula}
+\usepackage{subcaption}
+\usepackage{vmargin}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{array}
+
+\setpapersize{A4}
+\setmargins{2.5cm}       % margen izquierdo
+{1.5cm}                        % margen superior
+{16.75cm}                      % anchura del texto
+{23.42cm}                    % altura del texto
+{10pt}                           % altura de los encabezados
+{1cm}                           % espacio entre el texto y los encabezados
+{2pt}                             % altura del pie de página
+{2.5cm}
+\newcommand{\dpartial}[2]{\frac{\partial #1 }{\partial #2}}
+\begin{document}
+	% Hoja de portada, únicamente editar nombres y códigos
+	
+	\begin{titlepage}
+		\begin{center}
+			\includegraphics[scale=0.5]{Logo}
+		\end{center}
+		
+		\begin{center}
+			
+			
+			{\scshape\Large LABORATORIO DE FÍSICA I \\ \par}
+			\vspace{0.5cm}
+			%			\hline
+			\vspace{2.5cm}
+			{\scshape\Large INFORME DE LABORATORIO\\ \par}
+			\vspace{0.5cm}
+			{\Large\bfseries P19B: IMPEDANCIA DE UN CIRCUITO RC.
+				\par}
+			
+			
+			
+			
+			
+			\vspace{1cm}
+			{\itshape Diego Nicolás Lobato de la Cruz \\
+				Primero de CC Físicas: Grupo E \par} 
+			
+			\vspace{0.5cm}
+			
+			Fecha de realización: 13/03/2023 ~~~~~~~~
+			Fecha de entrega: 21/03/2023
+			
+		\end{center}
+		
+		\vspace{2cm}
+		
+		\tableofcontents
+		\pagenumbering{gobble}
+	\end{titlepage}
+	
+	\newpage
+	
+	\pagenumbering{arabic}
+	
+	\section{INTRODUCCIÓN TEÓRICA} \label{1.}
+	
+	El objetivo es estudiar el comportamiento de un circuito RC consistente en un generador de potencial alterno, una resistencia y un condensador, en nuestro caso conectados en serie, como se muestra en la figura 1. Se quiere por lo tanto medir el valor de la impedancia. Se sabe que el generador proporciona un voltaje alterno sinusoidal como muestra la ecuacion (1).
+	
+	$$ V = V_0 cos (\omega t ) ~~~~~~~(1)$$
+	 
+	Que conectado a nuestro circuito genera una intensidad de corriente en el circuito también alterna que presenta un desfase angular $\phi$ como se muestra en la ecuación (2).
+	
+	$$ I = I_0 cos(\omega t + \phi)  ~~~~~~~(2)$$
+	
+	En este caso, puesto que no se trata de un circuito de corriente continua, la relación entre el potencial y la intensidad de corriente no es una constante, y por lo tanto no se puede aplicar la ley de Ohm. Sin embargo se puede calcular el valor de la relación entre los valores pico a pico de potencial e intensidad de corriente, que se denomina impedancia. A partir de esos datos también se puede calcular el angulo de desfase. De los dos elementos en nuestro circuito, se puede demostrar que es el condensador el que genera un desfase $\phi$, es decir, en su ausencia, la impedancia es unicamente $R$ y no hay desfase. Para calcular la impedancia total del circuito se utiliza suma cuadrática de la impedancia capacitiva del condensador (3) y de la resistencia obteniendo la formula (4).	Nótese que dada la relación entre frecuencia ($\nu$) y velocidad angular $\omega = 2 \pi \nu$ la ecuacion (4) se puede escribir en función de cualquiera de las dos. 
+	
+	
+	 $$ \chi_C = \frac{1}{\omega C}  ~~~~~~~(3)$$
+	 
+	 $$ Z = \sqrt{R^2 + (\dfrac{1}{\omega C})^2} ~~ \rightarrow ~~ Z = \sqrt{R^2 + (\dfrac{1}{2 \pi \nu C})^2}  ~~~~~~~(4)$$
+	
+	
+Análogamente partir de las ecuaciones (1), (2), (4) podemos obtener el valor de ($\phi$) como se muestra en la ecuacion (5)
+
+$$ \phi = \arctan(\dfrac{1}{\omega C R})  ~~ \rightarrow ~~ \phi = \arctan (\dfrac{1}{2 \pi \tau C R})  ~~~~~~~(5)$$
+
+\newpage
+	
+	\section{INSTRUMENTACIÓN Y METODOLOGÍA}
+	
+	Para encontrar los valores de la impedancia y del angulo de desfase de el circuito que se presenta en la figura 1, se ha utilizado el osciloscopio y el generador de corriente alterna que se muestran en la figura 2. El osciloscopio muestra tanto la señal del potencial del generador como el valor de la caída de tensión en la resistencia R que viene dado por la expresión (6).
+	
+	$$ V_R(t) = R I_{pp} cos(\omega t + \phi)  = V_{R_{pp}} cos(\omega t + \phi)  ~~~~~~~(6)$$
+	
+	Donde $V_{R_{pp}}$ es el valor del voltaje pico a pico en nuestro circuito y $I_{pp}$ el valor pico a pico de la intensidad de corriente. A partir de esta ecuación, se puede calcular la impedancia como la relación entre el voltaje de la fuente ($V_G_{pp}$)  y la intensidad pico a pico como se muestra en la (7).
+	
+	$$ |Z| = \dfrac{V_G_{pp}}{I_{pp}} = \dfrac{R \cdot V_G_{pp} }{V_R_{pp}}  ~~~~~~~(7)$$
+	
+	Las medidas de los potenciales pico a pico se toman con la opción de medida directa del osciloscopio y se han tomado medidas para 10 valores de potencial generado con frecuencias entre 30 Hz y 3000Hz. 
+	
+	Finalmente para establecer el calculo del desfase se representan ambas señales en el osciloscopio en el modo XT. Cogiendo los instantes donde las señales se anulan ($t_2$ y $t_1$), es posible establecer la relación (8) que nos proporciona el valor de $(\phi)$
+	
+	$$ \phi = 2 \pi \nu (t_1 - t_2)  ~~~~~~~(8)$$
+	
+	Como error de las medidas realizadas con el osciloscopio se ha tomado la sensibilidad del aparato en el caso de que la medida fuese precisa y no fluctuase en ninguno de los decimales, y para las medidas que no eran tan exactas se ha tomado como intervalo de incertidumbre la mitad de las fluctuación observada para cada medida.
+	
+	
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}{.45\textwidth}
+			\centering
+			\includegraphics[width=.95\linewidth]{Circuito}
+			\caption*{Figura 1: Esquema de el circuito
+				}
+		\end{minipage}%
+		\begin{minipage}{.45\textwidth}
+			\centering
+			\includegraphics[width=.95\linewidth]{Instru}
+			\caption*{Figura 2:Instrumentación utilizada}
+			
+		\end{minipage}
+	\end{figure}
+	
+	
+	
+	\section{TRABAJO PREVIO Y RESULTADOS}
+	
+	\subsection{Comportamiento para frecuencias limite (Trabajo previo)}
+	Ahora se quiere demostrar que en las ecuaciones (4) y (5) cuando la frecuencia $\nu$ tiende a cero el valor de la impedancia $Z$ tiende a infinito y el valor del desfase tiende a $\pi/2$ o $90^o$ mientras que si la frecuencia tiende a infinito la impedancia tiende al valor de la resistencia $R$ y el valor del angulo de desfase es 0 como se presentaba en la sección \ref{1.}.
+	
+	Para ello se presentan las gráficas del modulo de la impedancia $|Z|$ y del valor del angulo $\phi$ frente a un rango de frecuencias: $[30,3000]Hz$ considerando $R=2100\Omega$ y $C= 10^{-7} F$	
+	
+	
+	
+	
+	
+	
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}{.5\textwidth}
+			\centering
+			\includegraphics[width=.95\linewidth]{Curva1}
+			\caption*{Figura 3:Impedancia frente a frecuencia
+			\\ (Escala logaritmica)}
+		\end{minipage}%
+		\begin{minipage}{.5\textwidth}
+			\centering
+			\includegraphics[width=.95\linewidth]{Curva2}
+			\caption*{Figura 4: Angulo de desfase frente a frecuencia\\ (Escala logaritmica)}
+			
+		\end{minipage}
+	\end{figure}
+
+Se puede observar que por lo tanto el comportamiento limite se cumple.
+
+
+\subsection{Datos y resultados}
+	
+	En primer lugar, se ha obtenido el valor de la resistencia y la capacidad de el condensador del circuito para poder realizar los cálculos de los valores teóricos de la impedancia y desfase de nuestro circuito y poder compararlos con los valores experimentales. Para dichas medidas se han obtenido los resultados que se presentan en la tabla 1.
+	
+			\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{ |m{7.5cm}  |   c  | }
+				\hline
+				$R$ ($\Omega$) - Resistiencia :  &   $2178 ~~ \pm ~~ 1$     \\ \hline
+				$ C$ ($nF$) -	Capacidad del condesador &  $102 ~~ \pm ~~ 2$   \\  \hline
+			\end{tabular}
+			\label{Tab:1}
+			\caption*{Tabla 1: Datos de los elementos del circuito RC }
+		\end{center}
+	\end{table}
+	
+
+
+Una vez que disponemos de estos datos hemos realizado mediciones necesarias para realizar los cálculos de la impedancia y fase de nuestro circuito. Se han tomado mediciones del voltaje pico a pico del generados y en el circuito y el desfase de tiempo entre 0 de potencial para valores de frecuencia entre 30Hz y 3000Hz. Por motivos de comodidad las diez medidas se han tomado de forma que los logaritmos de los valores de frecuencia en base 10 estén aproximadamente equiespaciados. Los datos tomados se presentan en la tabla 2.
+
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{| c | c  | c | c | }
+			\hline 
+			$\mathbf{\nu(Hz)}$ & $\mathbf{V_{G_{pp}}(V)}$ & $\mathbf{V_{R_{pp}}(V)}$ & $\mathbf{|t1-t2| (ms)}$ \\
+			\hline
+
+			
+			$30~ \pm ~ 1$ & $ 22.4 ~ \pm ~ 0.2$ & $0.952 ~ \pm ~ 0.015$ & $8.2 ~ \pm ~ 0.2$ \\
+			
+			$50 ~ \pm ~ 1$ & $22.5~ \pm ~ 0.1$ & $1.54 ~ \pm ~ 0.01$ &  $4.8 ~ \pm ~ 0.1$  \\
+			
+			$85~ \pm ~ 1$ & $22.6 ~ \pm ~ 0.1$ & $2.65 ~ \pm ~ 0.02$ &  $2.7 ~ \pm ~ 0.1$  \\
+			
+			$140 ~ \pm ~ 1$ & $22.6 ~ \pm ~ 0.1$ & $4.40 ~ \pm ~ 0.02$ & $1.6 ~ \pm ~ 0.1$  \\
+			
+			$230 ~ \pm ~ 1$ & $22.6 ~ \pm ~ 0.1$ & $6.92 ~ \pm ~ 0.02$ & $0.88 ~ \pm ~ 0.10$  \\
+			
+			$390 ~ \pm ~ 1$ & $22.6 ~ \pm ~ 0.1$ & $10.8 ~ \pm ~ 0.01$ & $0.44 ~ \pm ~ 0.03$  \\
+			
+			$650 ~ \pm ~ 1$ & $22.6 ~ \pm ~ 0.1$ & $15.3 ~ \pm ~ 0.01$ & $0.21 ~ \pm ~ 0.02$  \\
+			
+			$1100 ~ \pm ~ 1$ & $22.4 ~ \pm ~ 0.2$ & $18.7 ~ \pm ~ 0.01$ & $0.088 ~ \pm ~ 0.006$  \\
+			
+			$1800 ~ \pm ~1$ & $22.2 ~ \pm ~ 0.2$ & $20.7 ~ \pm ~ 0.01$ & $0.036 ~ \pm ~ 0.004$  \\
+			
+			$3002~ \pm ~ 1$ & $23.2 ~ \pm ~ 0.2$ & $22.8 ~ \pm ~ 0.02$ & $0.015 ~ \pm ~ 0.001$ \\
+			
+		
+			\hline
+			
+		\end{tabular}
+		\label{Tab:3}
+		\caption*{Tabla 2: Datos  de frecuencia, potencial y tiempo de desfase  }
+	\end{center}
+\end{table}
+
+
+Ahora que se dispone de los datos necesarios, utilizando las ecuaciones (7) y (8) se puede calcular el valor de la impedancia y de el angulo de desfase, y con las ecuaciones (9) y (10), sus respectivas incertidumbres. El desarrollo de estas ultimas se presenta en el anexo.
+
+$$ \Delta Z = Z\sqrt{(\dfrac{\Delta V_G_{pp}}{V_G_{pp}})^2 + (\dfrac{\Delta R}{R})^2 + (\dfrac{\Delta V_R_{pp}}{V_R_{pp}})^2} ~~~~~~ (9)$$
+
+$$ \Delta \phi = \phi\sqrt{(\dfrac{\Delta \nu}{\nu})^2 + (\dfrac{\Delta (t_1-t_2)}{t_1-t_2})^2} ~~~~~~ (10)$$
+
+Los datos obtenidos a partir de estos cálculos se presentan en la tabla 3, nótese que el valor de el desfase angular ha sido presentado en unidades de grados y no de radianes pero nuestra formula nos proporciona este valor en radianes. Para dicha conversión solo es necesario multiplicar nuestro valor como incertidumbre en radianes por un factor $180^o/ \pi(rad)$ como se muestra en el anexo. En la tabla vuelven a presentarse los valores de frecuencia por comodidad y coherencia.
+
+
+
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{| c | c  | c | }
+			\hline 
+			$\mathbf{\nu(Hz)}$ & $\mathbf{|Z|}(k\Omega)}$ & $\mathbf{\phi(^o)}$ \\
+			\hline
+			
+			
+			$30~ \pm ~ 1$ & $ 51.25 ~ \pm ~ 0.93$ & $88.6 ~ \pm ~ 3.7$  \\
+			
+			$50 ~ \pm ~ 1$ & $31.82~ \pm ~ 0.25$ & $86.4 ~ \pm ~ 2.5$   \\
+			
+			$85~ \pm ~ 1$ & $18.57 ~ \pm ~ 0.16$ & $82.6 ~ \pm ~ 3.2$   \\
+			
+			$140 ~ \pm ~ 1$ & $11.187 ~ \pm ~ 0.071$ & $80.6 ~ \pm ~ 5.1$   \\
+			
+			$230 ~ \pm ~ 1$ & $7.113 ~ \pm ~ 0.038$ & $72.9 ~ \pm ~ 8.3$  \\
+			
+			$390 ~ \pm ~ 1$ & $4.558 ~ \pm ~ 0.021$ & $61.8 ~ \pm ~ 4.2$   \\
+			
+			$650 ~ \pm ~ 1$ & $3.217 ~ \pm ~ 0.014$ & $49.1 ~ \pm ~ 4.7$  \\
+			
+			$1100 ~ \pm ~ 1$ & $2.609 ~ \pm ~ 0.023$ & $34.8 ~ \pm ~ 2.4$  \\
+			
+			$1800 ~ \pm ~1$ & $2.336 ~ \pm ~ 0.021$ & $23.3 ~ \pm ~ 2.6$   \\
+			
+			$3002~ \pm ~ 1$ & $2.216 ~ \pm ~ 0.019$ & $16.2 ~ \pm ~ 1.1$ \\
+			
+			
+			\hline
+			
+		\end{tabular}
+		\label{Tab:3}
+		\caption*{Tabla 3: Datos  de frecuencia, impedancia y angulo de desfase  experimentales }
+	\end{center}
+\end{table}
+
+
+
+Ahora que disponemos de todos estos datos es interesante analizar su significado. Algo que se puede notar inmediatamente y que resulta muy interesante es el comportamiento del voltaje pico a pico entre los bornes de la resistencia cuando se modifica la frecuencia. Efectivamente se puede observar que si la frecuencia es mas baja dicho voltaje asume valores también muy bajos, es decir por nuestro circuito apenas circula corriente, mientras que al aumentar dicha frecuencia el valor se va a acercando al valor del generador y el circuito se comporta casi como si unicamente tuviese una resistencia. Efectivamente se puede observar que para valores de frecuencia nuestra impedancia se acerca al la resistencia. Este resultado concuerda con el análisis teórico de el comportamiento del circuito realizado en la sección \ref{1.}. Utilizando las formulas (4) y (5), se puede calcular el valor teórico de la impedancia y de la fase de nuestro circuito. Además se puede esstimar su incertidumbre utilizando las formulas (11) y (12), cuyo desarrollo se presenta en el anexo. Para los valores teóricos hemos calculado los valores para un vector de frecuencias que abarcan todos los valores enteros entre 30Hz y 3000Hz con el código de Matlab \footnote{Todos los cálculos y figuras se han realizado con códigos proprios que se pueden consultar en \href{https://github.com/NicolasLobat/P19B_Lobato_delaCruz_Diego_Nicolas.git}{Github}  \\Nótese que el archivo principal es el livescript y lo demás son funciones auxiliares que se llaman dentro de el archivo .mlx } pero se presentan unicamente los datos para las frecuencias utilizadas para los datos experimentales por fines comparativos.
+
+$$\Delta Z = \dfrac{1}{Z} \sqrt{ (\Delta R \cdot R)^2 + \left(\dfrac{\Delta C}{(2\pi \nu)^2 C^3}\right)^2  + \left(\dfrac{\Delta \nu}{(2\pi C)^2 \nu^3 }\right)^2 } ~~~~~~(11)$$
+
+$$ \Delta \phi = \dfrac{2\pi}{(RC2\pi \nu)^2 +1 )} \sqrt{(-\Delta\nu ~CR)^2 +(-\Delta R ~ \nu C)^2 + (-\Delta C ~ \nu R)^2} ~~~~~~ (12)$$
+
+
+
+\vspace{0.25cm}
+Con dichas formulas podemos por lo tanto obtener los datos utilizado para las gráficas y la comparación, presentados en la tabla 4.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{| c | c  | c | }
+			\hline 
+			$\mathbf{\nu(Hz)}$ & $\mathbf{|Z|}(k\Omega)}$ & $\mathbf{\phi(^o)}$ \\
+		\hline
+		
+		
+		$30~ \pm ~ 1$ & $ 52.1 ~ \pm ~ 2.0$ & $87.602 ~ \pm ~ 0.093$  \\
+		
+		$50 ~ \pm ~ 1$ & $31.28~ \pm ~ 0.87$ & $86.01 ~ \pm ~ 0.11$   \\
+		
+		$85~ \pm ~ 1$ & $18.49 ~ \pm ~ 0.42$ & $83.23 ~ \pm ~ 0.15$   \\
+		
+		$140 ~ \pm ~ 1$ & $11.36 ~ \pm ~ 0.23$ & $78.92 ~ \pm ~ 0.23$   \\
+		
+		$230 ~ \pm ~ 1$ & $7.13 ~ \pm ~ 0.13$ & $72.20 ~ \pm ~ 0.34$  \\
+		
+		$390 ~ \pm ~ 1$ & $4.555 ~ \pm ~ 0.069$ & $61.44 ~ \pm ~ 0.48$   \\
+		
+		$650 ~ \pm ~ 1$ & $3.241 ~ \pm ~ 0.035$ & $47.78 ~ \pm ~ 0.56$  \\
+		
+		$1100 ~ \pm ~ 1$ & $2.599 ~ \pm ~ 0.015$ & $33.08 ~ \pm ~ 0.51$  \\
+		
+		$1800 ~ \pm ~1$ & $2.3442 ~ \pm ~ 0.0064$ & $21.70 ~ \pm ~ 0.39$   \\
+		
+		$3002~ \pm ~ 1$ & $2.2392 ~ \pm ~ 0.0026$ & $13.42 ~ \pm ~ 0.25$ \\
+		
+		
+		\hline
+		
+	\end{tabular}
+	\label{Tab:3}
+	\caption*{Tabla 4: Datos  de frecuencia, impedancia y angulo de desfase teoricos  }
+\end{center}
+\end{table}
+
+
+
+
+
+ Además en la figura 5 y la figura 6 se presentan graficamente tanto los valores teóricos como los experimentales. Los valores experimentales se muestran en azul con puntos marcados por asterisco. La linea roja es el valor teórico, las lineas negras discontinuas son el intervalo de confianza de nuestra medida teórica y finalmente en verde se muestra nuestro comportamiento asintótico, es decir una recta $y=R$ para la figura 5 y $y=90^o $ para la figura 6.
+
+
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\linewidth]{Curva3}
+		\caption*{Figura 5: Impedancia frente a frecuencia}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=.95\linewidth]{Curva4}
+		\caption*{Figura 6: Angulo de desfase frente a frecuencia}
+		
+	\end{minipage}
+\end{figure}
+
+
+
+\subsection{Curvas de Lissanjous} 
+
+Es interesante también analizar que pasa cuando ponemos nuestro osciloscopio en modo XY para poder visualizar las curvas de Lissanjous ligadas al potencial generado y el potencial en el circuito. Efectivamente se observa que para frecuencias bajas se obtiene una elipse cuyo semieje mayor esta en la dirección del eje x, que corresponde a una relación 1:1 entre las frecuencias de las señales. Al aumentar el angulo la elipse tiende a la recta con una pendiente aproximada de $45^o$. Efectivamente, si se observa la figura $7^{[1]}$, esta es la curva de Lissanjous correspondiente a la frecuencia $1:1$ para un desfase de $0 rad$. Si se intercambian el orden de las señales la elipse está orientada dirección de el eje y, y se podría decir que rota en sentido antihorario al aumentar la frecuencia hasta tender a la misma recta.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.75]{Lissanjous}
+	\caption*{Figura 7: Algunas figuras de Lissanjous}
+	
+\end{figure}
+
+
+
+\section{COMENTARIOS Y CONCLUSIONES}
+
+
+
+Como podemos observar en las figuras 5 y 6, los datos experimentales se ajustan de buena manera a los valores teóricos, además si se comparan los datos de las tablas 3 y 4 vemos que los intervalos de incertidumbre de valores obtenidos se solapan, por lo que podemos confirmar que son compatibles. El único resultado que no es compatible es el resultado para el angulo de desfase para la frecuencia de 3002 Hz. Puesto que las medidas realizadas son principalmente medidas directas las posibles razones de la presencia de esta discrepancia son la precisión del aparato o un error en la medición. En cualquier caso los resultados son satisfactorios puesto que en su mayoría están en concordancia con los valores esperados teóricamente. Además se ha podido observar como el circuito, para frecuencias limite, es decir, que tienen a cero e a infinito se comporta de acuerdo a lo esperado. El angulo tiende a $\pi/2$ o $90^o$ para frecuencias nulas, y tiende a anularse para frecuencias altas. En cambio la impedancia crece sin limite cuando la frecuencia se anula, y tiende a el valor de la resistencia del circuito cuando crece. Todo esto se ha podido observar no solo en las imágenes 3 y 4 si no también en el comportamiento de los datos experimentales en las figuras 5 y 6. Además se ha podido observar las curvas de Lissanjous lo que nos ha permitido una ulterior confirmación de la tendencia del angulo de desfase al aumentar la frecuencia.
+
+\newpage
+	
+\section{ ANEXO: Cálculo  y desarrollo de fórmulas}
+
+
+La fórmula general para calcular la incertidumbre de una medida indirecta es:
+
+
+$$	\Delta X = \sqrt{\sum{(\dpartial{X}{X_i} \Delta X_i)^2}}  ~~~~~~~(A1)$$
+
+
+
+
+
+
+\subsection*{Impedancia y Angulo de fase experimental} \label{5.1}
+
+
+A partir de la ecuación (7) se puede tomar las derivadas parciales en función de sus diferentes parametros obteniendo las ecuaciones (A2), (A3), y (A4).
+
+
+
+\begin{equation*}
+	\setlength{\jot}{12pt} % affecting the line spacing in the environment
+	\begin{split}
+		\dpartial{Z}{V_G_{pp}}= \dfrac{R}{V_R_{pp}} = \dfrac{Z}{V_G_{pp}} ~~~~~~ (A3) \\
+		\dpartial{Z}{R} = \dfrac{V_G_{pp}}{V_R_{pp}} = \dfrac{Z}{V_R_{pp}}  ~~~~~~ (A4) \\
+		\dpartial{Z}{V_R_{pp}} = \dfrac{-R\cdot V_G_{pp}}{V^2_R_{pp}} = \dfrac{-Z}{V_R_{pp}} ~~~~~~ (A4)\\
+	\end{split}
+\end{equation*}
+
+\vspace{0.45cm}
+Que sustituidos en la ecuacion (A1) nos devuelve la formula (9).
+\vspace{0.45cm}
+
+$$ \Delta Z = Z\sqrt{(\dfrac{\Delta V_G_{pp}}{V_G_{pp}})^2 + (\dfrac{\Delta R}{R})^2 + (\dfrac{\Delta V_R_{pp}}{V_R_{pp}})^2}$$
+
+\vspace{0.45cm}
+Para el angulo de fase en cambio usamos la expresión (8) cuyas derivadas parciales son:
+
+\begin{equation*}
+	\setlength{\jot}{12pt} % affecting the line spacing in the environment
+	\begin{split}
+		\dpartial{\phi}{\nu}= 2\pi (T_1 - t_2) = \dfrac{\phi}{\nu} ~~~~~~ (A5) \\
+		\dpartial{\phi}{t_1 - t_2} = 2\pi \nu = \dfrac{\phi}{t_1 - t_2} ~~~~~~ (A6) \\
+	\end{split}
+\end{equation*}
+\vspace{0.45cm}
+Que sustituidos en la ecuacion (A1) nos devuelve la formula 10.
+\vspace{0.45cm}
+$$ \Delta \phi = \phi\sqrt{(\dfrac{\Delta \nu}{\nu})^2 + (\dfrac{\Delta (t_1-t_2)}{t_1-t_2})^2}$$
+
+
+
+
+\subsection*{Impedancia y Angulo de fase teórico} \label{5.1}
+
+
+A partir de la ecuación (4) se puede tomar las derivadas parciales en función de sus diferentes parametros obteniendo las ecuaciones (A7), (A8), y (A9).
+
+
+\begin{equation*}
+	\setlength{\jot}{12pt} % affecting the line spacing in the environment
+	\begin{split}
+		\dpartial{Z}{\nu}= \dfrac{-1}{(2\pi C)^2\nu^3 \sqrt{R^2 + (\dfrac{1}{2 \pi \nu C})^2}} = \dfrac{-1}{((2\pi C)^2 \nu^3 )Z} ~~~~~~ (A7) \\
+		\dpartial{Z}{R} = \dfrac{R}{\sqrt{R^2 + (\dfrac{1}{2 \pi \nu C})^2}} = \dfrac{R}{Z} ~~~~~~ (A8) \\
+		\dpartial{Z}{C} = \dfrac{-1}{(2\pi \nu)^2 C^3)\sqrt{R^2 + (\dfrac{1}{2 \pi \nu C})^2}} = \dfrac{-1}{((2\pi \nu)^2 C^3 )Z}  ~~~~~~ (A9)
+	\end{split}
+\end{equation*}
+
+\vspace{0.45cm}
+Por lo que la incertidumbre se calcula acorde a la fórmula (11).
+\vspace{0.45cm}
+
+
+
+
+\vspace{0.45cm}
+Ahora a partir de la formula (5) podemos encontrar las derivadas parciales de el angulo $\phi$ y por lo tanto su incertidumbre:
+\vspace{0.45cm}
+
+\begin{equation*}
+	\setlength{\jot}{12pt} % affecting the line spacing in the environment
+	\begin{split}
+		\dpartial{\phi}{\nu}= -\frac{1}{2\,C\,R\,v^2 \,\pi \,{\left(\frac{1}{4\,C^2 \,R^2 \,v^2 \,\pi^2 }+1\right)}} = -\frac{2\,\pi \,C\,R}{(RC2\pi \nu)^2 +1} ~~~~~~ (A10) \\
+		\dpartial{\phi}{R} =-\frac{1}{2\,C\,R^2 \,v\,\pi \,{\left(\frac{1}{4\,C^2 \,R^2 \,v^2 \,\pi^2 }+1\right)}} = -\frac{2\,\pi \,C\,v}{(RC2\pi \nu)^2 +1} ~~~~~~ (A11) \\
+		\dpartial{\phi}{C} = -\frac{1}{2\,C^2 \,R\,v\,\pi \,{\left(\frac{1}{4\,C^2 \,R^2 \,v^2 \,\pi^2 }+1\right)}}= -\frac{2\,\pi \,R\,v}{(RC2\pi \nu)^2 +1}  ~~~~~~ (A12)
+\end{split}
+\end{equation*}
+
+\vspace{0.45cm}
+Por lo que la incertidumbre se calcula acorde a la fórmula (12).
+
+\subsection*{Conversión de radianes a grados}
+Una cosa que es importante notar aquí es que si $\phi$ es el angulo en radianes y el factor de conversión $k=180^o/\pi(rad)$ de radianes a grados el angulo viene dado por la expresión (A13) y su incertidumbre se calcula como la (14) considerando que $k$ no tiene incertidumbre.
+
+$$ \phi_g = k\phi_{rad} ~~~~~~ (A13)$$
+
+$$ \dpartial{phi_{g}}{\phi_{rad}} =  k ~~ \rightarrow ~~ \Delta \phi_g = k\Delta\phi_{rad} ~~~~~~ (A14)$$
+
+
+
+
+\textbf{COMPROMISO DE ORIGINALIDAD }: Yo, Diego Nicolás Lobato de la Cruz, declaro que este informe es original, no habiendo recurrido para su elaboración a fuentes que no hayan sido expresamente citadas para el mismo.
+
+
+
+	\section{REFERENCIAS}
+
+$[1]$ Guion de la práctica 19A,El Osciloscopio, Laboratorio de Física, Facultad de CC. Físicas, UCM, https://fisicas.ucm.es/file/prac19a-2122-1\\
+
+
+$[2]$ Guion de la práctica 19B, Impedancia de un circuito RC, Laboratorio de Física, Facultad de CC. Físicas, UCM, https://fisicas.ucm.es/file/prac19b-2021
+
+
+\newpage 
+
+
+\centering
+\includegraphics[scale=0.55]{Datos}
+
+
+
+
+\end{document}
